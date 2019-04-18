@@ -7,7 +7,7 @@ from project import app , engine
 from flask import json, jsonify
 
 # DB Connection
-engine = create_engine('sqlite:///testing.db')
+engine = create_engine('sqlite:///Games.db')
 Base.metadata.bind = engine
 
 class testGamesRoute(unittest.TestCase):
@@ -37,7 +37,7 @@ class testGamesRoute(unittest.TestCase):
     def test_ViewAGame(self):
         result = self.app.get('/game/2/mcq')
         self.assertIn( b'"game_id":2' , result.data)
-    
+
 
     def test_AddNewGame(self):
              #send data as POST form to endpoint
@@ -47,9 +47,50 @@ class testGamesRoute(unittest.TestCase):
                 content_type='application/json',
                 data=json.dumps(sent)
             )
-            print(json.dumps(sent))
+
              #check result from server with expected data
             self.assertEqual(
                 result.status_code,
                 200
             )
+
+    def test_select_mcq_questions(self):
+        result = self.app.get('/game/1/mcq')
+
+        self.assertIn(b'"game_id":1' , result.data)
+        self.assertIn(b'questions' , result.data)
+        self.assertIn(b'"Answer1"', result.data)
+        self.assertIn(b'"Answer2"', result.data)
+        self.assertIn(b'"Answer3"', result.data)
+        self.assertIn(b'"AnswerTrue"', result.data)
+
+
+    def test_edit_questions(self):
+
+        #testing put method
+        sent = {"question_body": "GSDD", "Answer1": "2",
+                "Answer2": "2", "Answer3": "1","AnswerTrue": "1"}
+        result = app.test_client().put(
+            '/game/1/mcq/2/edit',
+            content_type='application/json',
+            data=json.dumps(sent)
+        )
+        # check result from server with expected data
+        self.assertEqual(
+            result.status_code,
+            200
+        )
+        self.assertEqual(b'{"message":"question promoted"}\n', result.data)
+
+
+    def test_delete_game(self):
+        result = app.test_client().delete(
+            '/game/2/mcq/3/delete',
+            content_type='application/json',
+        )
+        # check result from server with expected data
+        self.assertEqual(
+            result.status_code,
+            200
+        )
+        self.assertEqual(b'{"message":"question deleted "}\n', result.data)
