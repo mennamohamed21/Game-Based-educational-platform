@@ -20,14 +20,11 @@ engine = create_engine('sqlite:///Games.db')
 Base.metadata.bind = engine
 
 
-
 #Select all games
 @app.route('/games/')
 def games():
-
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
-
     games = session.query(Game).all()
     return jsonify(game=[r.serialize for r in games])
 
@@ -35,7 +32,6 @@ def games():
 # Add new game
 @app.route('/game/new', methods=['POST'])
 def addgame():
-
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
@@ -48,11 +44,9 @@ def addgame():
     return jsonify({'message':'new game Added'})
 
 
-
 #sleect questons of mcq game
 @app.route('/game/<int:id>/mcq', methods=['GET'])
 def Mcqestions(id):
-
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
@@ -67,7 +61,6 @@ def Mcqestions(id):
 #edit question
 @app.route('/game/<int:game_id>/mcq/<int:que_id>/edit',methods=['PUT'])
 def editquestion(game_id,que_id):
-
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
