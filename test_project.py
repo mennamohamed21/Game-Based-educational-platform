@@ -21,13 +21,14 @@ class testGamesRoute(unittest.TestCase):
 
     def test_games(self):
         result = self.app.get('/games/')
-        print(result.data)
         self.assertEqual(result.data , b'{"game":[{"category":"MCQ","id":1,"name":"mcq11"},'
                                        b'{"category":"MCQ","id":2,"name":"mcq12"}]}\n')
 
 
-    #class testGame(unittest.TestCase):
-    #To test adding a new game
-   # def test_add(self):
+    def test_ViewAGame(self):
+        result = self.app.get('/game/2/mcq')
+        self.assertEqual(result.data, b'{"questions":[{"Answer1":"2","Answer2":"2","Answer3":"1","AnswerTrue":"1",'
+                                      b'"game_id":2,"id":4,"question_body":"ASD"},{"Answer1":"2","Answer2":"2","Answer3":"1",'
+                                      b'"AnswerTrue":"1","game_id":2,"id":5,"question_body":"BAD"}]}\n')
 
 
