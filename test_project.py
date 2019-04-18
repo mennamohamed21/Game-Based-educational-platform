@@ -19,6 +19,12 @@ class testGamesRoute(unittest.TestCase):
         # assert the status code of the response
         self.assertEqual(result.status_code, 200)
 
+    def test_games(self):
+        result = self.app.get('/games/')
+        print(result.data)
+        self.assertEqual(result.data , b'{"game":[{"category":"MCQ","id":1,"name":"mcq11"},'
+                                       b'{"category":"MCQ","id":2,"name":"mcq12"}]}\n')
+
 
     #class testGame(unittest.TestCase):
     #To test adding a new game
