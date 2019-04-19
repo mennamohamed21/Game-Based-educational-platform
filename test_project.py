@@ -5,12 +5,12 @@ from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Game, Mcq
 from project import app , engine
 from flask import json, jsonify
+from games import InstantiateDB
 
-# DB Connection
-engine = create_engine('sqlite:///Games.db')
-Base.metadata.bind = engine
 
-class testGamesRoute(unittest.TestCase):
+InstantiateDB()
+
+class testGames(unittest.TestCase):
 
     def setUp(self):
         self.app = app.test_client()
@@ -96,3 +96,6 @@ class testGamesRoute(unittest.TestCase):
             200
         )
         self.assertEqual(b'{"message":"question deleted "}\n', result.data)
+
+
+InstantiateDB()
