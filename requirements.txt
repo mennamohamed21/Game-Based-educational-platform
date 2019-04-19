@@ -31,4 +31,4 @@ Werkzeug==0.12.2
 flake8
 pandas
 nltk
-pathlib
+pathlib==1.01
