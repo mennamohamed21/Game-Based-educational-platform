@@ -1,4 +1,4 @@
-<pre>language: python
+language: python
  pip install -r requirements.txt
 
 # command to run tests
@@ -11,4 +11,4 @@ script:
 
 # linting test
 
-– flake8</pre>
+– flake8
