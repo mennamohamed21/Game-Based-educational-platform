@@ -11,7 +11,9 @@ script:
 # unit test
 
 #python -m pytest -v
+-tests/test_project
 -pytest
+
 
 # linting test
 
