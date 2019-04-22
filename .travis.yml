@@ -10,9 +10,9 @@ script:
 
 # unit test
 
-#python -m pytest -v
--tests/test_project
--pytest
+python -m pytest -v tests/test_project
+#-tests/test_project
+#-pytest
 
 
 # linting test
