@@ -13,7 +13,7 @@ script:
 
 # unit test
 
-python -m pytest -v tests/test_project
+python -m pytest -v tests/test_project.py
 #-tests/test_project
 #-pytest
 
