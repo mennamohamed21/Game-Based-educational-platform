@@ -1,23 +1,9 @@
 language: python
 python:
--"3.6"
+  - "3.6"
+# command to install dependencies
 install:
- -pip install flake8
- -pip install -r requirements.txt
-
+  - pip install -r requirements.txt
 # command to run tests
-before_script:
--flake8.
-
 script:
-
-# unit test
-
-python -m pytest -v tests/test_project.py
-#-tests/test_project
-#-pytest
-
-
-# linting test
-
-#– flake8
+  - pytest
