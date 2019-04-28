@@ -8,6 +8,8 @@ install:
   - pip install -r requirements.txt
   - pip install flake8
 # command to run tests
+before_script:
+  - flake8.
 script:
   - pytest -v tests/test_project.py
-  -flake8.
+  
