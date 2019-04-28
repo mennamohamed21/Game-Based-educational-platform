@@ -11,5 +11,5 @@ install:
 before_script:
   - flake8.
 script:
-  - pytest -v tests/test_project.py
+  - pytest -v tests/test_project.py.
   
