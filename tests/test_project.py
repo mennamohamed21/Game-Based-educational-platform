@@ -38,6 +38,7 @@ class testGames(unittest.TestCase):
 
     def test_ViewAGame(self):
         result = self.app.get('/game/2/mcq')
+        result.data = result.data.strip()
         self.assertIn( b'"game_id":2' , result.data)
 
 
@@ -58,6 +59,7 @@ class testGames(unittest.TestCase):
 
     def test_select_mcq_questions(self):
         result = self.app.get('/game/1/mcq')
+        result.data = result.data.strip()
 
         self.assertIn(b'"game_id":1' , result.data)
         self.assertIn(b'questions' , result.data)
@@ -82,6 +84,7 @@ class testGames(unittest.TestCase):
             result.status_code,
             200
         )
+        result.data = result.data.strip()
         self.assertEqual(b'{"message":"question promoted"}\n', result.data)
 
 
@@ -95,6 +98,7 @@ class testGames(unittest.TestCase):
             result.status_code,
             200
         )
+        result.data = result.data.strip()
         self.assertEqual(b'{"message":"question deleted "}\n', result.data)
 
 
