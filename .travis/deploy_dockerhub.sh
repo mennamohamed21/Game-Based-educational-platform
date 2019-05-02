@@ -1,3 +1,4 @@
+#!/bin/sh
 docker login --username $DOCKER_USER --password $DOCKER_PASS
 if [ "$TRAVIS_BRANCH" = "master" ]; then
     TAG="latest"
