@@ -5,6 +5,6 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
 else
     TAG="$TRAVIS_BRANCH"
 fi
-docker build -f Dockerfile -t $TRAVIS_REPO_SLUG:$TAG .
-docker tag $TRAVIS_REPO_SLUG $DOCKER_REPO
+docker build -f Dockerfile -t mennamohamed21/game-based-educational-platform:$TAG .
+docker tag mennamohamed21/game-based-educational-platform $DOCKER_REPO
 docker push $DOCKER_REPO

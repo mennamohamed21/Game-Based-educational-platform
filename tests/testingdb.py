@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Game, Base, Mcq
+from app.database_setup import Game, Base, Mcq
 
 
 engine = create_engine('sqlite:///testing.db')

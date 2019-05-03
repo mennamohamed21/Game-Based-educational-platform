@@ -1,10 +1,10 @@
 import unittest
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from project.database_setup import Base, Game, Mcq
-from project.project import app , engine
+from app.database_setup import Base, Game, Mcq
+from app.project import app , engine
 from flask import json, jsonify
-from project.games import InstantiateDB
+from app.games import InstantiateDB
 
 
 InstantiateDB()
