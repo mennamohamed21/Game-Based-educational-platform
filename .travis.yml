@@ -1,14 +1,17 @@
-<pre>language: python
- pip install -r requirements.txt
 
+sudo: required
+services:
+  - docker
+language: python
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
 # command to run tests
-
 script:
-
-# unit test
-
-– python -m pytest -v
-
-# linting test
-
-– flake8</pre>
+  - python -m pytest
+after_success:
+  - sh .travis/deploy_dockerhub.sh

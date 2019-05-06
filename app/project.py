@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import jsonify, url_for, flash
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Game, Mcq
+from app.database_setup import Base, Game, Mcq
 from flask import session as login_session
 import random
 import string
