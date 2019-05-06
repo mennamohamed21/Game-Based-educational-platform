@@ -16,6 +16,7 @@ script:
   - python -m pytest
   - coverage run tests/test_project.py test
   - coverage report --fail-under=50
+  - flake8
 
 after_success:
   - sh .travis/deploy_dockerhub.sh
