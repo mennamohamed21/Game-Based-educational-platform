@@ -3,19 +3,17 @@ from sqlalchemy.orm import sessionmaker
 
 from app.database_setup import Game, Base, Mcq
 
-
 engine = create_engine('sqlite:///Games.db')
 
 Base.metadata.bind = engine
 
 
 def InstantiateDB():
-
     DBSession = sessionmaker(bind=engine)
 
     session = DBSession()
 
-    #To make sure no creation with the same id
+    # To make sure no creation with the same id
     session.query(Game).filter_by(id='1').delete()
     session.query(Game).filter_by(id='2').delete()
     session.query(Mcq).filter_by(id='1').delete()
@@ -33,23 +31,35 @@ def InstantiateDB():
     session.add(game2)
     session.commit()
 
-    game1questions1 = Mcq(id=1, game_id=1, question_body="ASD", Answer1="2", Answer2="2", Answer3="1", AnswerTrue="1")
+    game1questions1 = Mcq(id=1, game_id=1, question_body="ASD",
+                          Answer1="2", Answer2="2",
+                          Answer3="1", AnswerTrue="1")
     session.add(game1questions1)
     session.commit()
-    game1questions2 = Mcq(id=2, game_id=1, question_body="BAD", Answer1="2", Answer2="2", Answer3="1", AnswerTrue="1")
+    game1questions2 = Mcq(id=2, game_id=1, question_body="BAD",
+                          Answer1="2", Answer2="2",
+                          Answer3="1", AnswerTrue="1")
     session.add(game1questions2)
     session.commit()
-    game1questions3 = Mcq(id=3, game_id=1, question_body="CSD", Answer1="2", Answer2="2", Answer3="1", AnswerTrue="1")
+    game1questions3 = Mcq(id=3, game_id=1, question_body="CSD",
+                          Answer1="2", Answer2="2",
+                          Answer3="1", AnswerTrue="1")
     session.add(game1questions3)
     session.commit()
 
-    game2questions1 = Mcq(id=4, game_id=2, question_body="ASD", Answer1="2", Answer2="2", Answer3="1", AnswerTrue="1")
+    game2questions1 = Mcq(id=4, game_id=2, question_body="ASD",
+                          Answer1="2", Answer2="2",
+                          Answer3="1", AnswerTrue="1")
     session.add(game2questions1)
     session.commit()
-    game2questions2 = Mcq(id=5, game_id=2, question_body="BAD", Answer1="2", Answer2="2", Answer3="1", AnswerTrue="1")
+    game2questions2 = Mcq(id=5, game_id=2, question_body="BAD",
+                          Answer1="2", Answer2="2",
+                          Answer3="1", AnswerTrue="1")
     session.add(game2questions2)
     session.commit()
-    game2questions3 = Mcq(id=6, game_id=3, question_body="CSD", Answer1="2", Answer2="2", Answer3="1", AnswerTrue="1")
+    game2questions3 = Mcq(id=6, game_id=3, question_body="CSD",
+                          Answer1="2", Answer2="2",
+                          Answer3="1", AnswerTrue="1")
     session.add(game2questions3)
     session.commit()
 
@@ -58,4 +68,3 @@ def InstantiateDB():
     print("Added order")
 
     session.close()
-
