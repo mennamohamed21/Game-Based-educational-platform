@@ -32,6 +32,7 @@ class TestGames(unittest.TestCase):
         result.data = result.data.strip()
         self.assertIn(b' \n      "game_id": 2', result.data)
 
+
     def test_AddNewGame(self):
         # send data as POST form to endpoint
         sent = {"name": "mcq13", "category": "MCQ"}
@@ -77,6 +78,7 @@ class TestGames(unittest.TestCase):
         self.assertEqual(b'{\n  "message": "question promoted"\n}',
                          result.data)
 
+
     def test_delete_game(self):
         result = app.test_client().delete(
             '/game/2/mcq/3/delete',
@@ -92,4 +94,6 @@ class TestGames(unittest.TestCase):
                          result.data)
 
 
+
 InstantiateDB()
+
