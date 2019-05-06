@@ -9,9 +9,7 @@ engine = create_engine('sqlite:///Games.db')
 Base.metadata.bind = engine
 
 
-
 def InstantiateDB():
-
 
     DBSession = sessionmaker(bind=engine)
 
@@ -26,7 +24,6 @@ def InstantiateDB():
     session.query(Mcq).filter_by(id='4').delete()
     session.query(Mcq).filter_by(id='5').delete()
     session.query(Mcq).filter_by(id='6').delete()
-
 
     game1 = Game(id=1, name="mcq11", category="MCQ")
     session.add(game1)

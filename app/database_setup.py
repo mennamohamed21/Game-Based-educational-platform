@@ -14,9 +14,6 @@ class Game(Base):
     name=Column(String(250))
     category = Column(String(250))
 
-
-
-
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
@@ -27,6 +24,7 @@ class Game(Base):
 
 
         }
+
 
 class Mcq(Base):
     __tablename__ = 'mcq'
@@ -39,7 +37,6 @@ class Mcq(Base):
     Answer2=Column(String(250))
     Answer3=Column(String(250))
     AnswerTrue=Column(String(250))
-
 
     @property
     def serialize(self):
