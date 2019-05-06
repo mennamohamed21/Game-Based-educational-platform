@@ -10,10 +10,13 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+
+
 # command to run tests
 script:
   - python -m pytest
-  - coverage run tests\test_project.py test
+  - coverage test_project.py test
   - coverage report --fail-under=50
+
 after_success:
   - sh .travis/deploy_dockerhub.sh
