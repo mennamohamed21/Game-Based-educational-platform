@@ -91,9 +91,7 @@ def delete_qustion(game_id, que_id):
     return jsonify({'message': 'question deleted '})
 
 
-
 if __name__ == '__main__':
-
 
     app.secret_key = 'super_secret_key'
     app.debug = True
