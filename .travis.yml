@@ -15,7 +15,7 @@ install:
 # command to run tests
 script:
   - python -m pytest
-  - coverage test_project.py test
+  - coverage run test_project.py test
   - coverage report --fail-under=50
 
 after_success:
