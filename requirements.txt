@@ -30,4 +30,4 @@ virtualenv==15.1.0
 Werkzeug==0.12.2
 flake8==3.7.7
 pandas<=0.24.2
-nltk==3.4.1
+nltk==3.4.5
